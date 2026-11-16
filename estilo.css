@@ -1,0 +1,268 @@
+/* Paleta de cores Dark + Roxo */
+:root {
+    --fundo-principal: #0d0b14;
+    --fundo-secundario: #13101e;
+    --fundo-card: #1b172a;
+    --roxo-destaque: #8b5cf6;
+    --roxo-hover: #7c3aed;
+    --roxo-claro: #a78bfa;
+    --borda-roxa: rgba(139, 92, 246, 0.25);
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body.bg-light {
+    background-color: var(--fundo-principal) !important;
+    color: #e2e8f0;
+}
+
+/* Navbar com sublinhado animado nos links */
+.navbar.bg-dark {
+    background-color: rgba(13, 11, 20, 0.92) !important;
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--borda-roxa);
+}
+
+.navbar-brand span {
+    color: var(--roxo-claro);
+}
+
+.nav-link {
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 4px;
+    left: 50%;
+    background-color: var(--roxo-destaque);
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+
+.nav-link:hover {
+    color: var(--roxo-claro) !important;
+}
+
+.nav-link:hover::after {
+    width: 70%;
+}
+
+/* --- EFEITOS VISUAIS NO CAROUSEL --- */
+.carousel-item {
+    height: 95vh;
+    overflow: hidden;
+    position: relative;
+}
+
+/* Degradê escuro sobre a imagem para destacar o texto */
+.carousel-item::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to top,
+        rgba(13, 11, 20, 0.95) 0%,
+        rgba(13, 11, 20, 0.45) 50%,
+        rgba(13, 11, 20, 0.3) 100%
+    );
+    z-index: 1;
+}
+
+/* Animação Ken Burns (zoom suave contínuo) */
+@keyframes zoomSuave {
+    0% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(1.08);
+    }
+}
+
+.carousel-item img {
+    height: 100%;
+    object-fit: cover;
+    animation: zoomSuave 12s ease-in-out infinite alternate;
+}
+
+.carousel-caption {
+    z-index: 2;
+    bottom: 18%;
+    text-shadow: 0 4px 15px rgba(0, 0, 0, 0.8);
+}
+
+.carousel-indicators,
+.carousel-control-prev,
+.carousel-control-next {
+    z-index: 3;
+}
+
+.carousel-indicators [data-bs-target] {
+    background-color: var(--roxo-destaque);
+    height: 4px;
+    border-radius: 2px;
+}
+
+/* Alternância de fundo entre seções */
+section#perfil.bg-white,
+section#projetos.bg-white {
+    background-color: var(--fundo-secundario) !important;
+}
+
+section#formacao,
+section#contato {
+    background-color: var(--fundo-principal) !important;
+}
+
+/* Foto de perfil com pulso roxo suave */
+.profile-img {
+    width: 220px;
+    height: 220px;
+    object-fit: cover;
+    border-color: var(--roxo-destaque) !important;
+    box-shadow: 0 0 25px rgba(139, 92, 246, 0.35) !important;
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.profile-img:hover {
+    transform: scale(1.04);
+    box-shadow: 0 0 35px rgba(139, 92, 246, 0.65) !important;
+}
+
+/* Textos e títulos */
+.text-primary {
+    color: var(--roxo-claro) !important;
+}
+
+.text-muted,
+.text-secondary {
+    color: #94a3b8 !important;
+}
+
+h1, h2, h4, h5, h6, .fw-semibold {
+    color: #f8fafc;
+}
+
+/* --- CARDS E ANIMAÇÕES HOVER --- */
+.card {
+    background-color: var(--fundo-card);
+    border: 1px solid var(--borda-roxa) !important;
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-6px);
+    border-color: var(--roxo-destaque) !important;
+    box-shadow: 0 12px 30px rgba(139, 92, 246, 0.22) !important;
+}
+
+/* Animação nos ícones de tecnologia */
+.tech-item i {
+    transition: transform 0.3s ease;
+}
+
+.tech-item:hover i {
+    transform: scale(1.2) rotate(-6deg);
+}
+
+.devicon-github-original {
+    color: #f8fafc;
+}
+
+/* Zoom na imagem do projeto ao passar o mouse */
+.img-wrapper {
+    overflow: hidden;
+    border-bottom: 1px solid var(--borda-roxa);
+}
+
+.project-img {
+    height: 200px;
+    object-fit: cover;
+    transition: transform 0.45s ease;
+}
+
+.project-card:hover .project-img {
+    transform: scale(1.08);
+}
+
+/* --- TIMELINE (NOVA SEÇÃO FORMAÇÃO) --- */
+.timeline {
+    position: relative;
+    padding-left: 2.2rem;
+    border-left: 2px solid var(--roxo-destaque);
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 2rem;
+}
+
+.timeline-item:last-child {
+    margin-bottom: 0;
+}
+
+.timeline-dot {
+    position: absolute;
+    left: -2.75rem;
+    top: 1.5rem;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background-color: var(--roxo-destaque);
+    border: 3px solid var(--fundo-principal);
+    box-shadow: 0 0 12px var(--roxo-destaque);
+}
+
+/* Badges e Botões */
+.badge.bg-primary,
+.btn-primary {
+    background-color: var(--roxo-destaque) !important;
+    border-color: var(--roxo-destaque) !important;
+    color: #ffffff !important;
+    transition: all 0.25s ease;
+}
+
+.btn-primary:hover {
+    background-color: var(--roxo-hover) !important;
+    border-color: var(--roxo-hover) !important;
+    box-shadow: 0 4px 15px rgba(139, 92, 246, 0.45);
+}
+
+.btn-outline-primary {
+    color: var(--roxo-claro) !important;
+    border-color: var(--roxo-destaque) !important;
+    transition: all 0.25s ease;
+}
+
+.btn-outline-primary:hover {
+    background-color: var(--roxo-destaque) !important;
+    color: #ffffff !important;
+}
+
+.btn-dark {
+    background-color: #252038;
+    border-color: var(--borda-roxa);
+    transition: all 0.25s ease;
+}
+
+.btn-dark:hover {
+    background-color: #322b4d;
+    border-color: var(--roxo-destaque);
+}
+
+/* Linha divisória e Footer */
+hr {
+    border-color: var(--borda-roxa);
+    opacity: 1;
+}
+
+footer.bg-dark {
+    background-color: #09070e !important;
+    border-top: 1px solid var(--borda-roxa);
+}
